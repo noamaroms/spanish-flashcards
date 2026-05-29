@@ -244,10 +244,25 @@
         session.seenWords.add(item.wordRef);
         updateProgressDisplay();
 
-        $flashcard.classList.remove('flipped');
         $answerButtons.classList.add('hidden');
 
-        // Always show Spanish on front, Hebrew+English on back
+        if ($flashcard.classList.contains('flipped')) {
+            $flashcard.style.visibility = 'hidden';
+            $flashcard.classList.remove('flipped');
+            setTimeout(() => {
+                populateCard(word);
+                $flashcard.style.visibility = '';
+            }, 50);
+        } else {
+            $flashcard.style.visibility = 'hidden';
+            populateCard(word);
+            requestAnimationFrame(() => {
+                $flashcard.style.visibility = '';
+            });
+        }
+    }
+
+    function populateCard(word) {
         $cardFrontText.textContent = word.es;
         $cardExample.textContent = word.ex || '';
         $cardBackText.textContent = word.he;
