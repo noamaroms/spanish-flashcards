@@ -245,29 +245,15 @@
         updateProgressDisplay();
 
         $answerButtons.classList.add('hidden');
+        $flashcard.classList.remove('flipped');
 
-        if ($flashcard.classList.contains('flipped')) {
-            $flashcard.style.visibility = 'hidden';
-            $flashcard.classList.remove('flipped');
-            setTimeout(() => {
-                populateCard(word);
-                $flashcard.style.visibility = '';
-            }, 50);
-        } else {
-            $flashcard.style.visibility = 'hidden';
-            populateCard(word);
-            requestAnimationFrame(() => {
-                $flashcard.style.visibility = '';
-            });
-        }
-    }
-
-    function populateCard(word) {
         $cardFrontText.textContent = word.es;
         $cardExample.textContent = word.ex || '';
-        $cardBackText.textContent = word.he;
-        $cardBackEnglish.textContent = word.en || '';
-        $backLabel.textContent = 'עברית';
+        $cardBackText.textContent = '';
+        $cardBackEnglish.textContent = '';
+        $backLabel.textContent = '';
+
+        currentSession._currentWord = word;
     }
 
     function updateProgressDisplay() {
@@ -286,6 +272,12 @@
     function handleFlip() {
         if (!currentSession) return;
         if (!$flashcard.classList.contains('flipped')) {
+            const word = currentSession._currentWord;
+            if (word) {
+                $cardBackText.textContent = word.he;
+                $cardBackEnglish.textContent = word.en || '';
+                $backLabel.textContent = 'עברית';
+            }
             $flashcard.classList.add('flipped');
             $answerButtons.classList.remove('hidden');
         }
