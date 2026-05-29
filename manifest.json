@@ -1,0 +1,27 @@
+{
+    "name": "Spanish Flashcards - כרטיסיות ספרדית",
+    "short_name": "Flashcards",
+    "description": "Learn Spanish vocabulary with Hebrew translations",
+    "start_url": "/spanish-flashcards/",
+    "scope": "/spanish-flashcards/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#F0F4F8",
+    "theme_color": "#4A90D9",
+    "dir": "rtl",
+    "lang": "he",
+    "icons": [
+        {
+            "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='80' fill='%234A90D9'/><text x='256' y='340' font-size='280' text-anchor='middle' fill='white'>ES</text></svg>",
+            "sizes": "512x512",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='30' fill='%234A90D9'/><text x='96' y='130' font-size='100' text-anchor='middle' fill='white'>ES</text></svg>",
+            "sizes": "192x192",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#4A90D9">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>כרטיסיות ספרדית</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇪🇸</text></svg>">
+</head>
+<body>
+    <div id="app">
+        <!-- Home Screen -->
+        <div id="home-screen" class="screen active">
+            <header class="app-header">
+                <h1>כרטיסיות ספרדית 🇪🇸</h1>
+                <p class="subtitle">למד ספרדית עם כרטיסיות</p>
+            </header>
+
+            <div class="stats-bar" id="stats-bar">
+                <!-- Injected: total learned / total words -->
+            </div>
+
+            <div class="home-actions">
+                <button id="surprise-btn" class="surprise-btn">🎲 !הפתע אותי</button>
+                <button id="wordbank-btn" class="wordbank-btn">📚 אוצר המילים שלי</button>
+            </div>
+
+            <div id="categories-grid" class="categories-grid">
+                <!-- Categories will be injected here -->
+            </div>
+        </div>
+
+        <!-- Practice Screen -->
+        <div id="practice-screen" class="screen">
+            <header class="practice-header">
+                <button id="back-btn" class="back-btn">→ חזרה</button>
+                <h2 id="practice-title"></h2>
+                <button id="reset-btn" class="reset-btn" title="אפס התקדמות">🔄</button>
+            </header>
+            <div class="progress-container">
+                <div class="progress-text">
+                    <span id="progress-current">0</span> / <span id="progress-total">0</span>
+                </div>
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+            <div class="card-area">
+                <div id="flashcard" class="flashcard">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="card-lang-label">ספרדית</span>
+                            <span id="card-front-text" class="card-text"></span>
+                            <span id="card-example" class="card-example"></span>
+                            <span class="card-hint">לחץ כדי להפוך</span>
+                        </div>
+                        <div class="flashcard-back">
+                            <span class="card-lang-label" id="back-label">עברית</span>
+                            <span id="card-back-text" class="card-text"></span>
+                            <span id="card-back-english" class="card-english"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="answer-buttons" class="answer-buttons hidden">
+                <button id="wrong-btn" class="answer-btn wrong-btn">לא ידעתי ✗</button>
+                <button id="correct-btn" class="answer-btn correct-btn">ידעתי ✓</button>
+            </div>
+        </div>
+
+        <!-- Completion Screen -->
+        <div id="completion-screen" class="screen">
+            <div class="completion-content">
+                <div class="completion-emoji">🎉</div>
+                <h2>כל הכבוד!</h2>
+                <p id="completion-message"></p>
+                <div id="completion-stats" class="completion-stats"></div>
+                <button id="completion-home-btn" class="primary-btn">חזרה לתפריט הראשי</button>
+            </div>
+        </div>
+
+        <!-- Word Bank Screen -->
+        <div id="wordbank-screen" class="screen">
+            <header class="practice-header">
+                <button id="wordbank-back-btn" class="back-btn">→ חזרה</button>
+                <h2>📚 אוצר המילים שלי</h2>
+                <span></span>
+            </header>
+            <div class="wordbank-summary" id="wordbank-summary"></div>
+            <div class="wordbank-search">
+                <input type="text" id="wordbank-search-input" placeholder="🔍 חפש מילה..." />
+            </div>
+            <div class="wordbank-filter">
+                <button class="filter-btn active" data-filter="all">הכל</button>
+                <button class="filter-btn" data-filter="learned">נלמדו ✓</button>
+                <button class="filter-btn" data-filter="remaining">נותרו</button>
+            </div>
+            <div id="wordbank-list" class="wordbank-list">
+                <!-- Word bank entries injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
