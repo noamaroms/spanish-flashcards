@@ -1,5 +1,5 @@
 // ===== Service Worker - Spanish Flashcards =====
-const CACHE_NAME = 'spanish-flashcards-v8';
+const CACHE_NAME = 'spanish-flashcards-v9';
 const ASSETS = [
     './',
     './index.html',

@@ -159,7 +159,7 @@
         });
 
         if (wordsToLearn.length === 0) {
-            showConfirm('כל המילים בקטגוריה זו נלמדו! לאפס ולהתחיל מחדש?', () => {
+            showConfirm('כל המילים בקטגוריה זו נלמדו. לאפס ולהתחיל מחדש?', () => {
                 resetCategoryProgress(catId);
                 renderCategories();
                 startCategory(catId);
@@ -213,7 +213,7 @@
 
         currentSession = {
             categoryId: '__surprise__',
-            categoryName: '!הפתע אותי',
+            categoryName: 'הפתע אותי!',
             words: wordsForSession,
             deck,
             completedCount: 0,
@@ -223,7 +223,7 @@
             isSurprise: true
         };
 
-        $practiceTitle.textContent = '🎲 !הפתע אותי';
+        $practiceTitle.textContent = '🎲 הפתע אותי!';
         $resetBtn.style.display = 'none';
         showScreen($practiceScreen);
         showNextCard();
@@ -335,7 +335,7 @@
         const { learnedWords } = getTotalStats();
 
         $completionMessage.textContent = session.isSurprise
-            ? `סיימת ${session.totalToLearn} מילים אקראיות!`
+            ? `סיימת ${session.totalToLearn} מילים אקראיות`
             : `סיימת את הקטגוריה "${session.categoryName}"!`;
 
         $completionStats.innerHTML = `
